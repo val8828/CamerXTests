@@ -113,6 +113,7 @@ public class MainActivityN extends AppCompatActivity {
             SimpleDateFormat mDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.US);
             File file = new File(getBatchDirectoryName(), mDateFormat.format(new Date())+ ".jpg");
 
+            Toast.makeText(MainActivityN.this, file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
             ImageCapture.OutputFileOptions outputFileOptions = new ImageCapture.OutputFileOptions.Builder(file).build();
             imageCapture.takePicture(outputFileOptions, executor, new ImageCapture.OnImageSavedCallback () {
                 @Override
@@ -135,7 +136,7 @@ public class MainActivityN extends AppCompatActivity {
     public String getBatchDirectoryName() {
 
         String app_folder_path = "";
-        app_folder_path = Environment.getExternalStorageDirectory().toString() + "/images";
+        app_folder_path = Environment.getExternalStorageDirectory().toString() + "/Pictures";
         File dir = new File(app_folder_path);
         if (!dir.exists() && !dir.mkdirs()) {
 
