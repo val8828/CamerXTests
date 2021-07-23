@@ -10,6 +10,12 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +39,29 @@ public class MainActivity extends AppCompatActivity {
                 enableAudioRecorder();
             }
         });
+
+        File internalStorageDir = getFilesDir();
+//        Toast.makeText(this, internalStorageDir.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+        File alice = new File(internalStorageDir, "alice.csv");
+        // Create file output stream
+        FileOutputStream fos = null;
+        if (alice.exists()){
+            Toast.makeText(this, "alice exists", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, alice.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+        }
+
+        try {
+            fos = new FileOutputStream(alice);
+            // Write a line to the file
+            fos.write("Alice,25,1".getBytes());
+            // Close the file output stream
+            fos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void enableCamera() {
