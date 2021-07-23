@@ -1,0 +1,16 @@
+com/example/camerxtests/CameraActivity.java
+ com.example.camerxtests.CameraActivity
+ com.example.camerxtests.CameraActivity$1
+ com.example.camerxtests.CameraActivity$2
+ com.example.camerxtests.CameraActivity$2$1
+com/example/camerxtests/BuildConfig.java
+ com.example.camerxtests.BuildConfig
+com/example/camerxtests/AudioRecordActivity.java
+ com.example.camerxtests.AudioRecordActivity
+ com.example.camerxtests.AudioRecordActivity$1
+ com.example.camerxtests.AudioRecordActivity$2
+ com.example.camerxtests.AudioRecordActivity$3
+com/example/camerxtests/MainActivity.java
+ com.example.camerxtests.MainActivity
+ com.example.camerxtests.MainActivity$1
+ com.example.camerxtests.MainActivity$2
