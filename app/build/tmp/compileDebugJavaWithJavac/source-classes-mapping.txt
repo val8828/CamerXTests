@@ -1,15 +1,44 @@
-com/example/camerxtests/CameraActivity.java
- com.example.camerxtests.CameraActivity
- com.example.camerxtests.CameraActivity$1
- com.example.camerxtests.CameraActivity$2
- com.example.camerxtests.CameraActivity$2$1
-com/example/camerxtests/BuildConfig.java
- com.example.camerxtests.BuildConfig
+com/example/camerxtests/base/dao/AudioEntityDAO.java
+ com.example.camerxtests.base.dao.AudioEntityDAO
+com/example/camerxtests/api/ApiService.java
+ com.example.camerxtests.api.ApiService
+com/example/camerxtests/base/dao/PublicationDAO.java
+ com.example.camerxtests.base.dao.PublicationDAO
+com/example/camerxtests/api/BasicAuthInterceptor.java
+ com.example.camerxtests.api.BasicAuthInterceptor
+com/example/camerxtests/base/dao/UserDAO.java
+ com.example.camerxtests.base.dao.UserDAO
+com/example/camerxtests/base/dao/PhotoEntityDAO.java
+ com.example.camerxtests.base.dao.PhotoEntityDAO
 com/example/camerxtests/AudioRecordActivity.java
  com.example.camerxtests.AudioRecordActivity
  com.example.camerxtests.AudioRecordActivity$1
  com.example.camerxtests.AudioRecordActivity$2
  com.example.camerxtests.AudioRecordActivity$3
+com/example/camerxtests/base/AppDatabase.java
+ com.example.camerxtests.base.AppDatabase
+com/example/camerxtests/base/adapters/PublicationAdapter.java
+ com.example.camerxtests.base.adapters.PublicationAdapter
+ com.example.camerxtests.base.adapters.PublicationAdapter$PublicationViewHolder
+com/example/camerxtests/BuildConfig.java
+ com.example.camerxtests.BuildConfig
+com/example/camerxtests/base/pojo/PhotoEntity.java
+ com.example.camerxtests.base.pojo.PhotoEntity
+com/example/camerxtests/base/pojo/PublicationResponse.java
+ com.example.camerxtests.base.pojo.PublicationResponse
+com/example/camerxtests/base/pojo/User.java
+ com.example.camerxtests.base.pojo.User
+com/example/camerxtests/CameraActivity.java
+ com.example.camerxtests.CameraActivity
+ com.example.camerxtests.CameraActivity$1
+ com.example.camerxtests.CameraActivity$2
+ com.example.camerxtests.CameraActivity$2$1
+com/example/camerxtests/api/ApiFactory.java
+ com.example.camerxtests.api.ApiFactory
+com/example/camerxtests/base/pojo/AudioEntity.java
+ com.example.camerxtests.base.pojo.AudioEntity
+com/example/camerxtests/base/pojo/Publication.java
+ com.example.camerxtests.base.pojo.Publication
 com/example/camerxtests/MainActivity.java
  com.example.camerxtests.MainActivity
  com.example.camerxtests.MainActivity$1

@@ -1698,7 +1698,9 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable ic_add
 drawable ic_clock_black_24dp
+drawable ic_home
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -1706,6 +1708,7 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_search
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -1810,6 +1813,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addToFavoritesButton
 id alertTitle
 id aligned
 id all
@@ -1830,6 +1834,8 @@ id beginOnFirstDraw
 id beginning
 id blocking
 id bottom
+id bottomAppBar
+id bottomNavigationView
 id bounce
 id buttonPanel
 id button_pause_recording
@@ -1839,6 +1845,7 @@ id cache_measures
 id cancel_button
 id capture
 id captureImg
+id card
 id center
 id center_horizontal
 id center_vertical
@@ -1876,6 +1883,7 @@ id decor_content_parent
 id default_activity_button
 id deltaRelative
 id dependency_ordering
+id descriptionTextView
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -1909,6 +1917,7 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fab
 id fade
 id fill
 id fillCenter
@@ -1947,6 +1956,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView
 id info
 id invisible
 id inward
@@ -1994,6 +2004,7 @@ id month_navigation_fragment_toggle
 id month_navigation_next
 id month_navigation_previous
 id month_title
+id more
 id motion_base
 id mtrl_anchor_parent
 id mtrl_calendar_day_selector_frame
@@ -2047,6 +2058,7 @@ id pathRelative
 id peekHeight
 id percent
 id pin
+id placeholder
 id position
 id postLayout
 id previewView
@@ -2056,6 +2068,7 @@ id radio
 id ratio
 id recorder_time_tip
 id rectangles
+id recyclerViewPublications
 id reverseSawtooth
 id right
 id rightToLeft
@@ -2073,6 +2086,7 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
+id search
 id search_badge
 id search_bar
 id search_button
@@ -2109,6 +2123,7 @@ id src_in
 id src_over
 id standard
 id start
+id startAudioRecorderButton
 id startHorizontal
 id startToEnd
 id startVertical
@@ -2155,6 +2170,7 @@ id textinput_suffix_text
 id time
 id title
 id titleDividerNoCustom
+id titleTextView
 id title_template
 id toggle
 id top
@@ -2168,6 +2184,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id turnOffSoundButton
 id unchecked
 id uniform
 id unlabeled
@@ -2255,6 +2272,7 @@ layout abc_tooltip
 layout activity_audio_record
 layout activity_camera
 layout activity_main
+layout activity_main_n
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -2320,6 +2338,7 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout publication_item
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
@@ -2339,6 +2358,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu bottom_app_bar
 mipmap ic_capture
 mipmap ic_launcher
 mipmap ic_launcher_round
@@ -2370,8 +2390,11 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string action_1
+string action_2
 string action_settings
 string androidx_camera_default_config_provider
+string androidx_startup
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
@@ -2382,11 +2405,15 @@ string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
+string content_description_home
+string content_description_media
+string content_description_search
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string hide_bottom_view_on_scroll_behavior
+string home
 string icon_content_description
 string item_view_role_description
 string material_clock_display_divider
@@ -2457,7 +2484,9 @@ string record
 string recorder
 string recorder_page
 string resume
+string search
 string search_menu_title
+string secondary_text
 string sound_recorder
 string start
 string start_read
@@ -2466,6 +2495,7 @@ string status_bar_notification_info_overflow
 string stop
 string stop_read
 string stop_record
+string supporting_text
 string this_is_a_camerax_test_app
 string title
 style AlertDialog_AppCompat
@@ -2477,6 +2507,7 @@ style Animation_AppCompat_Tooltip
 style Animation_Design_BottomSheetDialog
 style Animation_MaterialComponents_BottomSheetDialog
 style AppTheme
+style AppThemeMaterial
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light
 style Base_Animation_AppCompat_Dialog

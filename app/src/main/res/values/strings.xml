@@ -20,4 +20,13 @@
     <string name="pause">Pause</string>
     <string name="start">Start</string>
     <string name="resume">Resume</string>
+    <string name="content_description_media">Description</string>
+    <string name="secondary_text">Secondary_Long_Description</string>
+    <string name="supporting_text">Other Description</string>
+    <string name="action_1">Action1</string>
+    <string name="action_2">Action2</string>
+    <string name="search">Search</string>
+    <string name="content_description_search">Search</string>
+    <string name="home">Home</string>
+    <string name="content_description_home">Home</string>
 </resources>
