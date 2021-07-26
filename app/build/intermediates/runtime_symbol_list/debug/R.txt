@@ -1017,8 +1017,10 @@ int color cardview_shadow_end_color 0x7f05002b
 int color cardview_shadow_start_color 0x7f05002c
 int color checkbox_themeable_attribute_color 0x7f05002d
 int color colorAccent 0x7f05002e
+int color colorBlack 0x7f0500d2
 int color colorPrimary 0x7f05002f
 int color colorPrimaryDark 0x7f050030
+int color colorWhite 0x7f0500d1
 int color design_bottom_navigation_shadow_color 0x7f050031
 int color design_box_stroke_color 0x7f050032
 int color design_dark_default_color_background 0x7f050033
@@ -1703,6 +1705,7 @@ int drawable ic_home 0x7f070067
 int drawable ic_keyboard_black_24dp 0x7f070068
 int drawable ic_launcher_background 0x7f070069
 int drawable ic_launcher_foreground 0x7f07006a
+int drawable ic_menu 0x7f070094
 int drawable ic_mtrl_checked_circle 0x7f07006b
 int drawable ic_mtrl_chip_checked_black 0x7f07006c
 int drawable ic_mtrl_chip_checked_circle 0x7f07006d
@@ -1834,7 +1837,6 @@ int id beginning 0x7f080056
 int id blocking 0x7f080057
 int id bottom 0x7f080058
 int id bottomAppBar 0x7f080059
-int id bottomNavigationView 0x7f08005a
 int id bounce 0x7f08005b
 int id buttonPanel 0x7f08005c
 int id button_pause_recording 0x7f08005d
@@ -2362,6 +2364,7 @@ int mipmap ic_capture 0x7f0d0000
 int mipmap ic_launcher 0x7f0d0001
 int mipmap ic_launcher_round 0x7f0d0002
 int plurals mtrl_badge_content_description 0x7f0e0000
+int string Permission_not_granted 0x7f0f0087
 int string abc_action_bar_home_description 0x7f0f0000
 int string abc_action_bar_up_description 0x7f0f0001
 int string abc_action_menu_overflow_description 0x7f0f0002

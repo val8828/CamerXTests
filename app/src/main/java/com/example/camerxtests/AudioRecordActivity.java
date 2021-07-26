@@ -80,6 +80,7 @@ public class AudioRecordActivity extends Activity {
             {
                 File internal = new File("/sdcard");
                 File[] internalContents = internal.listFiles();
+
             }
             else
             {

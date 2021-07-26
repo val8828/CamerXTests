@@ -10,16 +10,12 @@ com/example/camerxtests/base/dao/UserDAO.java
  com.example.camerxtests.base.dao.UserDAO
 com/example/camerxtests/base/dao/PhotoEntityDAO.java
  com.example.camerxtests.base.dao.PhotoEntityDAO
-com/example/camerxtests/AudioRecordActivity.java
- com.example.camerxtests.AudioRecordActivity
- com.example.camerxtests.AudioRecordActivity$1
- com.example.camerxtests.AudioRecordActivity$2
- com.example.camerxtests.AudioRecordActivity$3
+com/example/camerxtests/base/pojo/Publication.java
+ com.example.camerxtests.base.pojo.Publication
 com/example/camerxtests/base/AppDatabase.java
  com.example.camerxtests.base.AppDatabase
-com/example/camerxtests/base/adapters/PublicationAdapter.java
- com.example.camerxtests.base.adapters.PublicationAdapter
- com.example.camerxtests.base.adapters.PublicationAdapter$PublicationViewHolder
+com/example/camerxtests/api/ApiFactory.java
+ com.example.camerxtests.api.ApiFactory
 com/example/camerxtests/BuildConfig.java
  com.example.camerxtests.BuildConfig
 com/example/camerxtests/base/pojo/PhotoEntity.java
@@ -28,18 +24,23 @@ com/example/camerxtests/base/pojo/PublicationResponse.java
  com.example.camerxtests.base.pojo.PublicationResponse
 com/example/camerxtests/base/pojo/User.java
  com.example.camerxtests.base.pojo.User
+com/example/camerxtests/base/pojo/AudioEntity.java
+ com.example.camerxtests.base.pojo.AudioEntity
 com/example/camerxtests/CameraActivity.java
  com.example.camerxtests.CameraActivity
  com.example.camerxtests.CameraActivity$1
  com.example.camerxtests.CameraActivity$2
  com.example.camerxtests.CameraActivity$2$1
-com/example/camerxtests/api/ApiFactory.java
- com.example.camerxtests.api.ApiFactory
-com/example/camerxtests/base/pojo/AudioEntity.java
- com.example.camerxtests.base.pojo.AudioEntity
-com/example/camerxtests/base/pojo/Publication.java
- com.example.camerxtests.base.pojo.Publication
+com/example/camerxtests/AudioRecordActivity.java
+ com.example.camerxtests.AudioRecordActivity
+ com.example.camerxtests.AudioRecordActivity$1
+ com.example.camerxtests.AudioRecordActivity$2
+ com.example.camerxtests.AudioRecordActivity$3
+com/example/camerxtests/base/adapters/PublicationAdapter.java
+ com.example.camerxtests.base.adapters.PublicationAdapter
+ com.example.camerxtests.base.adapters.PublicationAdapter$PublicationViewHolder
 com/example/camerxtests/MainActivity.java
  com.example.camerxtests.MainActivity
  com.example.camerxtests.MainActivity$1
  com.example.camerxtests.MainActivity$2
+ com.example.camerxtests.MainActivity$3

@@ -40,8 +40,7 @@ import java.util.concurrent.Executors;
 public class CameraActivity extends AppCompatActivity {
 
     private final Executor executor = Executors.newSingleThreadExecutor();
-    private final int REQUEST_CODE_PERMISSIONS = 1001;
-    private final String[] REQUIRED_PERMISSIONS = new String[]{"android.permission.CAMERA", "android.permission.WRITE_EXTERNAL_STORAGE"};
+
 
     PreviewView mPreviewView;
     ImageView captureImage;
@@ -53,13 +52,13 @@ public class CameraActivity extends AppCompatActivity {
 
         mPreviewView = findViewById(R.id.previewView);
         captureImage = findViewById(R.id.captureImg);
-
-        if(allPermissionsGranted()){
+//
+//        if(allPermissionsGranted()){
             startCamera(); //start camera if permission has been granted by user
-        } else{
-            ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS);
-
-        }
+//        } else{
+//            ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS);
+//
+//        }
     }
 
     private void startCamera() {
@@ -114,12 +113,8 @@ public class CameraActivity extends AppCompatActivity {
         Camera camera = cameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector, preview, imageAnalysis, imageCapture);
 
         captureImage.setOnClickListener(v -> {
-
-            SimpleDateFormat mDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.US);
-            File file = new File(getBatchDirectoryName(), mDateFormat.format(new Date())+ ".jpg");
-
-            Toast.makeText(CameraActivity.this, file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
-            ImageCapture.OutputFileOptions outputFileOptions = new ImageCapture.OutputFileOptions.Builder(file).build();
+//            Toast.makeText(CameraActivity.this, getFileName(), Toast.LENGTH_SHORT).show();
+            ImageCapture.OutputFileOptions outputFileOptions = new ImageCapture.OutputFileOptions.Builder(getFileName()).build();
             imageCapture.takePicture(outputFileOptions, executor, new ImageCapture.OnImageSavedCallback () {
                 @Override
                 public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
@@ -140,8 +135,6 @@ public class CameraActivity extends AppCompatActivity {
 
     }
 
-
-
     public String getBatchDirectoryName() {
 
         String app_folder_path = "";
@@ -154,27 +147,12 @@ public class CameraActivity extends AppCompatActivity {
         return app_folder_path;
     }
 
-    private boolean allPermissionsGranted(){
+    public File getFileName(){
+        SimpleDateFormat mDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.US);
+        return new File(getBatchDirectoryName(), mDateFormat.format(new Date())+ ".jpg");
 
-        for(String permission : REQUIRED_PERMISSIONS){
-            if(ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED){
-                return false;
-            }
-        }
-        return true;
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_CODE_PERMISSIONS) {
-            if (allPermissionsGranted()) {
-                startCamera();
-            } else {
-                Toast.makeText(this, "Permissions not granted by the user.", Toast.LENGTH_SHORT).show();
-                this.finish();
-            }
-        }
-    }
+
 }
