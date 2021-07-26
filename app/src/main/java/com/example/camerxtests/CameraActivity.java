@@ -1,11 +1,13 @@
 package com.example.camerxtests;
 
 import android.Manifest;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
+import android.preference.PreferenceManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -45,21 +47,29 @@ public class CameraActivity extends AppCompatActivity {
 
     PreviewView mPreviewView;
     ImageView captureImage;
+    private int lastPublicationId = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
+        readPreferences();
 
         mPreviewView = findViewById(R.id.previewView);
         captureImage = findViewById(R.id.captureImg);
 
-        if(allPermissionsGranted()){
+//        if(allPermissionsGranted()){
             startCamera(); //start camera if permission has been granted by user
-        } else{
-            ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS);
+//        } else{
+//            ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS);
+//
+//        }
+    }
 
-        }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        writePreferences();
     }
 
     private void startCamera() {
@@ -70,10 +80,8 @@ public class CameraActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-
                     ProcessCameraProvider cameraProvider = cameraProviderFuture.get();
                     bindPreview(cameraProvider);
-
                 } catch (ExecutionException | InterruptedException e) {
                     // No errors need to be handled for this Future.
                     // This should never be reached.
@@ -116,9 +124,9 @@ public class CameraActivity extends AppCompatActivity {
         captureImage.setOnClickListener(v -> {
 
             SimpleDateFormat mDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.US);
-            File file = new File(getBatchDirectoryName(), mDateFormat.format(new Date())+ ".jpg");
-
-            Toast.makeText(CameraActivity.this, file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+            File file = new File(getBatchDirectoryName(), "id" + (++lastPublicationId) + "_" + mDateFormat.format(new Date())+ ".jpg");
+            writePreferences();
+//            Toast.makeText(CameraActivity.this, file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
             ImageCapture.OutputFileOptions outputFileOptions = new ImageCapture.OutputFileOptions.Builder(file).build();
             imageCapture.takePicture(outputFileOptions, executor, new ImageCapture.OnImageSavedCallback () {
                 @Override
@@ -145,7 +153,7 @@ public class CameraActivity extends AppCompatActivity {
     public String getBatchDirectoryName() {
 
         String app_folder_path = "";
-        app_folder_path = Environment.getExternalStorageDirectory().toString() + "/Pictures";
+        app_folder_path = Environment.getExternalStorageDirectory().toString() + "/Pictures/MyApp/";
         File dir = new File(app_folder_path);
         if (!dir.exists() && !dir.mkdirs()) {
 
@@ -176,5 +184,27 @@ public class CameraActivity extends AppCompatActivity {
                 this.finish();
             }
         }
+    }
+
+    private void readPreferences(){
+        SharedPreferences myPreferences
+                = PreferenceManager.getDefaultSharedPreferences(CameraActivity.this);
+//        SharedPreferences.Editor myEditor = myPreferences.edit();
+//        myEditor.putString("NAME", "Alice");
+//        myEditor.putInt("AGE", 25);
+//        myEditor.putBoolean("SINGLE?", true);
+//        myEditor.apply();
+//        String name = myPreferences.getString("NAME", "unknown");
+        lastPublicationId = myPreferences.getInt("LAST_PUBLICATION_ID", 0);
+//        boolean isSingle = myPreferences.getBoolean("SINGLE?", false);
+    }
+
+    private void writePreferences(){
+        SharedPreferences myPreferences
+                = PreferenceManager.getDefaultSharedPreferences(CameraActivity.this);
+        SharedPreferences.Editor myEditor = myPreferences.edit();
+        myEditor.putInt("LAST_PUBLICATION_ID", lastPublicationId);
+        myEditor.apply();
+
     }
 }

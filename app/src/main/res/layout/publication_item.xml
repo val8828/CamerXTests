@@ -67,14 +67,6 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Title, secondary and supporting text -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title"
-                android:id="@+id/titleTextView"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                />
             <TextView
                 android:id="@+id/descriptionTextView"
                 android:layout_width="wrap_content"
