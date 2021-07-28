@@ -1710,9 +1710,11 @@ drawable design_snackbar_background
 drawable ic_add
 drawable ic_clock_black_24dp
 drawable ic_home
+drawable ic_input
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_mic
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
@@ -1826,7 +1828,6 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
-id addToFavoritesButton
 id alertTitle
 id aligned
 id all
@@ -1926,6 +1927,7 @@ id dropdown_menu
 id easeIn
 id easeInOut
 id easeOut
+id edit_buttons_menu
 id edit_query
 id elastic
 id enableCamera
@@ -1980,6 +1982,7 @@ id ignore
 id ignoreRequest
 id image
 id imageView
+id imageView3
 id info
 id invisible
 id inward
@@ -2151,7 +2154,6 @@ id src_in
 id src_over
 id standard
 id start
-id startAudioRecorderButton
 id startHorizontal
 id startToEnd
 id startVertical
@@ -2182,6 +2184,7 @@ id test_radiobutton_app_button_tint
 id text
 id text2
 id textEnd
+id textField
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
@@ -2211,7 +2214,6 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
-id turnOffSoundButton
 id unchecked
 id uniform
 id unlabeled
@@ -2301,6 +2303,7 @@ layout activity_camera
 layout activity_edit_publication
 layout activity_main
 layout activity_main_n
+layout activity_preview
 layout crop_image_view
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -2451,6 +2454,7 @@ string hide_bottom_view_on_scroll_behavior
 string home
 string icon_content_description
 string item_view_role_description
+string label
 string material_clock_display_divider
 string material_clock_toggle_content_description
 string material_hour_selection

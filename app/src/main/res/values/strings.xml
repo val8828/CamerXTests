@@ -37,6 +37,7 @@
     <string name="showGuidelines">showGuidelines =\u0020</string>
     <string name="crop">Crop</string>
     <string name="croppedImageDesc">The cropped image.</string>
+    <string name="label">Добавить подпись…</string>
 
     <string-array name="showGuidelinesArray">
         <item>Off</item>

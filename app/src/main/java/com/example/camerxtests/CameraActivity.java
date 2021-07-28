@@ -3,6 +3,7 @@ package com.example.camerxtests;
 import android.Manifest;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -32,6 +33,14 @@ import androidx.lifecycle.LifecycleOwner;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -124,8 +133,11 @@ public class CameraActivity extends AppCompatActivity {
         captureImage.setOnClickListener(v -> {
 
             SimpleDateFormat mDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.US);
-            File file = new File(getBatchDirectoryName(), "id" + (++lastPublicationId) + "_" + mDateFormat.format(new Date())+ ".jpg");
-            writePreferences();
+            File file = new File(getBatchDirectoryName(), "Preview.jpg");//id" + (++lastPublicationId) + "_" + mDateFormat.format(new Date())+ ".jpg");
+//            File dest = new File(getBatchDirectoryName(), "id" + (++lastPublicationId) + "_" + mDateFormat.format(new Date())+ ".jpg");
+//            writePreferences();
+//            file.renameTo(dest);
+
 //            Toast.makeText(CameraActivity.this, file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
             ImageCapture.OutputFileOptions outputFileOptions = new ImageCapture.OutputFileOptions.Builder(file).build();
             imageCapture.takePicture(outputFileOptions, executor, new ImageCapture.OnImageSavedCallback () {
@@ -141,17 +153,15 @@ public class CameraActivity extends AppCompatActivity {
                 @Override
                 public void onError(@NonNull ImageCaptureException error) {
                     error.printStackTrace();
+                    if(file.exists()){
+                        boolean delete = file.delete();
+                    }
                 }
             });
         });
-
-
     }
 
-
-
     public String getBatchDirectoryName() {
-
         String app_folder_path = "";
         app_folder_path = Environment.getExternalStorageDirectory().toString() + "/Pictures/MyApp/";
         File dir = new File(app_folder_path);
@@ -207,4 +217,5 @@ public class CameraActivity extends AppCompatActivity {
         myEditor.apply();
 
     }
+
 }

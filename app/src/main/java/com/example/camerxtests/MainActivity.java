@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import androidx.exifinterface.media.ExifInterface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
@@ -24,6 +25,7 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import io.reactivex.disposables.CompositeDisposable;
@@ -34,12 +36,12 @@ public class MainActivity extends AppCompatActivity implements LifecycleOwner {
     private final int REQUEST_CODE_PERMISSIONS = 1001;
     private final String[] REQUIRED_PERMISSIONS = new String[]{"android.permission.CAMERA", "android.permission.WRITE_EXTERNAL_STORAGE","android.permission.RECORD_AUDIO"};
 
-
-
     RecyclerView recyclerViewPublications;
     RecyclerViewAdapter recyclerViewAdapter;
     MainActivity context;
     MainViewModel viewModel;
+    final String text = "textttdsdfsdfsdf";
+    int counter = 0;
     private Disposable disposable;
     private CompositeDisposable compositeDisposable;
 
@@ -52,18 +54,37 @@ public class MainActivity extends AppCompatActivity implements LifecycleOwner {
             ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS);
         }
         initial();
+
     }
 
     private void initial(){
+        readFilesInDirectory();
         context = this;
         recyclerViewPublications = findViewById(R.id.recyclerViewPublications);
+
+        recyclerViewPublications.addOnItemTouchListener(
+                new RecyclerItemClickListener(context, recyclerViewPublications ,new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                        // do whatever
+                    }
+
+                    @Override public void onLongItemClick(View view, int position) {
+                        // do whatever
+                    }
+                })
+        );
+
         viewModel = new ViewModelProvider(context).get(MainViewModel.class);
 
         viewModel.getPublicationMutableLiveData().observe(context, userListUpdateObserver);
 
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                viewModel.addNewPublication(new Publication(text + (++counter)) );
+
                 enableCamera();
 
                 //                String path = Environment.getExternalStorageDirectory().toString()+"/folder";
@@ -136,7 +157,39 @@ public class MainActivity extends AppCompatActivity implements LifecycleOwner {
             }
         }
     }
+    private void readFilesInDirectory(){
+        File f = new File(getBatchDirectoryName());
+        File[] list = f.listFiles();
+        if(list != null) {
+            for (File f2 : list) {
+                String fileName = f2.getAbsolutePath();
+                if (fileName.contains("/id") && fileName.contains(".jpg")) {
+                    int id = Integer.parseInt(fileName.substring((fileName.indexOf("/id") + 3), fileName.indexOf("_")));
+                    Toast.makeText(this, "id= " + id,
+                            Toast.LENGTH_SHORT).show();
+                }
+//            try {
+//                ExifInterface exifInterface = new ExifInterface(f2);
+//                exifInterface.setAttribute("UserComment", mString);
+//                exifInterface.saveAttributes();
+//                String my_data = exifInterface.getAttribute("UserComment");
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+            }
+        }
+    }
 
+    public String getBatchDirectoryName() {
+        String app_folder_path = "";
+        app_folder_path = Environment.getExternalStorageDirectory().toString() + "/Pictures/MyApp/";
+        File dir = new File(app_folder_path);
+        if (!dir.exists() && !dir.mkdirs()) {
+
+        }
+
+        return app_folder_path;
+    }
 
 }
 

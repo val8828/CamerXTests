@@ -1,5 +1,7 @@
 package com.example.camerxtests;
 
+import java.io.File;
+
 public class Publication {
 
     private int id;
@@ -12,9 +14,9 @@ public class Publication {
 
     private String modificationDate;
 
-    private String imageFileLocation;
+    private File imageFile;
 
-    private String audioFileLocation;
+    private File audioFile;
 
     public int getId() {
         return id;
@@ -56,19 +58,26 @@ public class Publication {
         this.modificationDate = modificationDate;
     }
 
-    public String getImageFileLocation() {
-        return imageFileLocation;
+    public File getImageFile() {
+        return imageFile;
     }
 
-    public void setImageFileLocation(String imageFileLocation) {
-        this.imageFileLocation = imageFileLocation;
+    public void setImageFile(File imageFile) {
+        this.imageFile = imageFile;
     }
 
-    public String getAudioFileLocation() {
-        return audioFileLocation;
+    public File getAudioFile() {
+        return audioFile;
     }
 
-    public void setAudioFileLocation(String audioFileLocation) {
-        this.audioFileLocation = audioFileLocation;
+    public void setAudioFile(File audioFile) {
+        this.audioFile = audioFile;
+    }
+
+    public Publication() {
+    }
+
+    public Publication(String description) {
+        this.description = description;
     }
 }

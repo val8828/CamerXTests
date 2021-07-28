@@ -37,16 +37,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         Publication publication = publicationArrayList.get(position);
         RecyclerViewViewHolder viewHolder= (RecyclerViewViewHolder) holder;
         //Check if file exists
-        if(publication.getImageFileLocation() != null ){
-            viewHolder.imageView.setImageURI(Uri.parse(publication.getImageFileLocation()));
+        if(publication.getImageFile() != null ){
+            viewHolder.imageView.setImageURI(Uri.parse(publication.getImageFile().getAbsolutePath()));
         }
         if(publication.getDescription() != null){
 
                 String text = publication.getDescription();
                 viewHolder.descriptionTextView.setText(text);
                 System.out.println("");
-
-
         }
     }
 
@@ -55,11 +53,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         return publicationArrayList.size();
     }
 
-
     class RecyclerViewViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView descriptionTextView;
-
 
         public RecyclerViewViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,4 +64,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         }
     }
+
+
 }

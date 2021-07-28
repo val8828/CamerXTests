@@ -46,6 +46,17 @@ public class MainViewModel extends ViewModel {
         publicationArrayList.add(publication3);
         publicationArrayList.add(publication4);
     }
+
+    public void addNewPublication(Publication publication){
+        publicationArrayList = publicationLiveData.getValue();
+        if(publicationArrayList == null){
+            publicationArrayList = new ArrayList<>();
+        }
+        publicationArrayList. add(publication);
+//        publicationLiveData.setValue(publicationArrayList);
+        publicationLiveData.postValue(publicationArrayList);
+
+    }
 }
 
 

@@ -7,14 +7,13 @@
     android:layout_margin="8dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
         <!-- Media -->
         <ImageView
+            android:background="@null"
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="194dp"
@@ -22,63 +21,23 @@
             android:scaleType="centerCrop"
             android:contentDescription="@string/content_description_media"
             />
-
-        <!-- Buttons -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="0dp"
-            android:orientation="horizontal">
-
-            <ImageButton
-            android:id="@+id/startAudioRecorderButton"
-            style="?attr/borderlessButtonStyle"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="5dp"
-            android:contentDescription="@string/sound_recorder"
-            app:srcCompat="@android:drawable/ic_btn_speak_now" />
-
-            <ImageButton
-                android:id="@+id/addToFavoritesButton"
-                style="?attr/borderlessButtonStyle"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginEnd="5dp"
-                android:contentDescription="@string/sound_recorder"
-                app:srcCompat="@android:drawable/ic_input_get" />
-            <ImageButton
-                android:id="@+id/turnOffSoundButton"
-                style="?attr/borderlessButtonStyle"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginEnd="0dp"
-                android:contentDescription="@string/sound_recorder"
-                app:srcCompat="@android:drawable/ic_lock_silent_mode" />
-
-        </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
-
             <TextView
                 android:id="@+id/descriptionTextView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:gravity="start|top"
                 android:text="@string/secondary_text"
+                android:importantForAutofill="no"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorSecondary"
-                />
-
+                app:drawableStartCompat="@android:drawable/ic_input_get"
+                app:drawableEndCompat="@android:drawable/ic_lock_silent_mode" />
         </LinearLayout>
-
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>

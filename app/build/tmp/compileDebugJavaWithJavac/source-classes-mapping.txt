@@ -1,25 +1,33 @@
-com/example/camerxtests/Publication.java
- com.example.camerxtests.Publication
-com/example/camerxtests/BuildConfig.java
- com.example.camerxtests.BuildConfig
-com/example/camerxtests/MainViewModel.java
- com.example.camerxtests.MainViewModel
-com/example/camerxtests/EditPhotoActivity.java
- com.example.camerxtests.EditPhotoActivity
-com/example/camerxtests/AudioRecordActivity.java
- com.example.camerxtests.AudioRecordActivity
- com.example.camerxtests.AudioRecordActivity$1
- com.example.camerxtests.AudioRecordActivity$2
- com.example.camerxtests.AudioRecordActivity$3
-com/example/camerxtests/RecyclerViewAdapter.java
- com.example.camerxtests.RecyclerViewAdapter
- com.example.camerxtests.RecyclerViewAdapter$RecyclerViewViewHolder
+com/example/camerxtests/RecyclerItemClickListener.java
+ com.example.camerxtests.RecyclerItemClickListener
+ com.example.camerxtests.RecyclerItemClickListener$1
+ com.example.camerxtests.RecyclerItemClickListener$OnItemClickListener
 com/example/camerxtests/CameraActivity.java
  com.example.camerxtests.CameraActivity
  com.example.camerxtests.CameraActivity$1
  com.example.camerxtests.CameraActivity$2
  com.example.camerxtests.CameraActivity$2$1
+com/example/camerxtests/RecyclerViewAdapter.java
+ com.example.camerxtests.RecyclerViewAdapter
+ com.example.camerxtests.RecyclerViewAdapter$RecyclerViewViewHolder
+com/example/camerxtests/AudioRecordActivity.java
+ com.example.camerxtests.AudioRecordActivity
+ com.example.camerxtests.AudioRecordActivity$1
+ com.example.camerxtests.AudioRecordActivity$2
+ com.example.camerxtests.AudioRecordActivity$3
+com/example/camerxtests/EditPhotoActivity.java
+ com.example.camerxtests.EditPhotoActivity
+ com.example.camerxtests.EditPhotoActivity$1
+com/example/camerxtests/Publication.java
+ com.example.camerxtests.Publication
+com/example/camerxtests/BuildConfig.java
+ com.example.camerxtests.BuildConfig
+com/example/camerxtests/Publications.java
+ com.example.camerxtests.Publications
+com/example/camerxtests/MainViewModel.java
+ com.example.camerxtests.MainViewModel
 com/example/camerxtests/MainActivity.java
  com.example.camerxtests.MainActivity
  com.example.camerxtests.MainActivity$1
  com.example.camerxtests.MainActivity$2
+ com.example.camerxtests.MainActivity$3
