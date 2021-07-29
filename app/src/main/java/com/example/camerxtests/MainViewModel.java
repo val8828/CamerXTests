@@ -4,6 +4,8 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class MainViewModel extends ViewModel {
     MutableLiveData<ArrayList<Publication>> publicationLiveData;
@@ -19,7 +21,7 @@ public class MainViewModel extends ViewModel {
     }
 
     public void init(){
-        populateList();
+//        populateList();
         publicationLiveData.setValue(publicationArrayList);
     }
 
@@ -47,14 +49,28 @@ public class MainViewModel extends ViewModel {
         publicationArrayList.add(publication4);
     }
 
+    public void addNewPublications(Collection<Publication> publications){
+
+        publicationArrayList = publicationLiveData.getValue();
+        if(publicationArrayList == null){
+            publicationArrayList = new ArrayList<>();
+        }
+        if(publications != null){
+            publicationArrayList.addAll(publications);
+            publicationLiveData.postValue(publicationArrayList);
+        }
+
+    }
+
     public void addNewPublication(Publication publication){
         publicationArrayList = publicationLiveData.getValue();
         if(publicationArrayList == null){
             publicationArrayList = new ArrayList<>();
         }
-        publicationArrayList. add(publication);
-//        publicationLiveData.setValue(publicationArrayList);
-        publicationLiveData.postValue(publicationArrayList);
+        if(publication != null){
+            publicationArrayList.add(publication);
+            publicationLiveData.postValue(publicationArrayList);
+        }
 
     }
 }

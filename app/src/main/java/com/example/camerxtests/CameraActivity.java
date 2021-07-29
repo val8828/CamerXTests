@@ -1,6 +1,7 @@
 package com.example.camerxtests;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -57,12 +58,14 @@ public class CameraActivity extends AppCompatActivity {
     PreviewView mPreviewView;
     ImageView captureImage;
     private int lastPublicationId = 0;
+    CameraActivity context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
-        readPreferences();
+
+        context = this;
 
         mPreviewView = findViewById(R.id.previewView);
         captureImage = findViewById(R.id.captureImg);
@@ -78,7 +81,7 @@ public class CameraActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        writePreferences();
+
     }
 
     private void startCamera() {
@@ -132,8 +135,9 @@ public class CameraActivity extends AppCompatActivity {
 
         captureImage.setOnClickListener(v -> {
 
-            SimpleDateFormat mDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.US);
-            File file = new File(getBatchDirectoryName(), "Preview.jpg");//id" + (++lastPublicationId) + "_" + mDateFormat.format(new Date())+ ".jpg");
+
+//            File file = new File(getBatchDirectoryName(), "id" + (++lastPublicationId) + "_" + mDateFormat.format(new Date())+ ".jpg");//"Preview.jpg");//
+            File file = new File(MainActivity.getBatchDirectoryName(), "Preview.jpg");//"Preview.jpg");//
 //            File dest = new File(getBatchDirectoryName(), "id" + (++lastPublicationId) + "_" + mDateFormat.format(new Date())+ ".jpg");
 //            writePreferences();
 //            file.renameTo(dest);
@@ -147,6 +151,8 @@ public class CameraActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             Toast.makeText(CameraActivity.this, "Image Saved successfully", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(context, EditPhotoActivity.class);
+                            startActivity(intent);
                         }
                     });
                 }
@@ -161,16 +167,16 @@ public class CameraActivity extends AppCompatActivity {
         });
     }
 
-    public String getBatchDirectoryName() {
-        String app_folder_path = "";
-        app_folder_path = Environment.getExternalStorageDirectory().toString() + "/Pictures/MyApp/";
-        File dir = new File(app_folder_path);
-        if (!dir.exists() && !dir.mkdirs()) {
-
-        }
-
-        return app_folder_path;
-    }
+//    public String getBatchDirectoryName() {
+//        String app_folder_path = "";
+//        app_folder_path = Environment.getExternalStorageDirectory().toString() + "/Pictures/MyApp/";
+//        File dir = new File(app_folder_path);
+//        if (!dir.exists() && !dir.mkdirs()) {
+//
+//        }
+//
+//        return app_folder_path;
+//    }
 
     private boolean allPermissionsGranted(){
 
@@ -196,26 +202,6 @@ public class CameraActivity extends AppCompatActivity {
         }
     }
 
-    private void readPreferences(){
-        SharedPreferences myPreferences
-                = PreferenceManager.getDefaultSharedPreferences(CameraActivity.this);
-//        SharedPreferences.Editor myEditor = myPreferences.edit();
-//        myEditor.putString("NAME", "Alice");
-//        myEditor.putInt("AGE", 25);
-//        myEditor.putBoolean("SINGLE?", true);
-//        myEditor.apply();
-//        String name = myPreferences.getString("NAME", "unknown");
-        lastPublicationId = myPreferences.getInt("LAST_PUBLICATION_ID", 0);
-//        boolean isSingle = myPreferences.getBoolean("SINGLE?", false);
-    }
 
-    private void writePreferences(){
-        SharedPreferences myPreferences
-                = PreferenceManager.getDefaultSharedPreferences(CameraActivity.this);
-        SharedPreferences.Editor myEditor = myPreferences.edit();
-        myEditor.putInt("LAST_PUBLICATION_ID", lastPublicationId);
-        myEditor.apply();
-
-    }
 
 }

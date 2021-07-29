@@ -41,11 +41,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             viewHolder.imageView.setImageURI(Uri.parse(publication.getImageFile().getAbsolutePath()));
         }
         if(publication.getDescription() != null){
-
                 String text = publication.getDescription();
                 viewHolder.descriptionTextView.setText(text);
                 System.out.println("");
         }
+
     }
 
     @Override
