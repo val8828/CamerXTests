@@ -23,7 +23,8 @@
         <activity android:name=".AudioRecordActivity"/>
         <activity android:name=".CameraActivity"/>
         <activity android:name=".EditPhotoActivity"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivityV2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

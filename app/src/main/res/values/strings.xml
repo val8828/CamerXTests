@@ -9,7 +9,9 @@
     <string name="stop_record">Stop record</string>
     <string name="start_read">Start read</string>
     <string name="stop_read">Stop read</string>
-    <string name="path_for_images">/Pictures/MyApp/</string>
+    <string name="path_for_images">/Pictures/MyApp/Images/</string>
+    <string name="path_for_previews">/Pictures/MyApp/Previews/</string>
+    <string name="path_for_sounds">/Pictures/MyApp/Sounds/</string>
 
     <string name="title">Audio Recorder!</string>
     <string name="recorder">Recorder</string>
@@ -38,6 +40,7 @@
     <string name="crop">Crop</string>
     <string name="croppedImageDesc">The cropped image.</string>
     <string name="label">Добавить подпись…</string>
+    <string name="add_new_publication">Add new publication</string>
 
     <string-array name="showGuidelinesArray">
         <item>Off</item>
